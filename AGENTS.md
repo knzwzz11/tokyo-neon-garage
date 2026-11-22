@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+- Game code splits into pure TypeScript simulation (`src/game/sim`), Web Audio synthesis (`src/game/audio`), R3F scene (`src/game/scene`), per-frame runtime state (`src/game/world.ts`, refs not React state) and React HUD (`src/components/hud`); one `Stepper` advances sim/audio per frame — keeps physics testable and avoids 60fps re-renders.
